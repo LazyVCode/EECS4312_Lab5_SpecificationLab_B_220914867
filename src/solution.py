@@ -1,5 +1,5 @@
-## Student Name:
-## Student ID: 
+## Student Name: Vikram Singh Chauhan
+## Student ID: 220914867
 
 """
 Stub file for the is allocation feasible exercise.
@@ -29,5 +29,21 @@ def is_allocation_feasible(
         True if the allocation is feasible, False otherwise.
 
     """
-    # TODO: Implement this function
-    raise NotImplementedError("suggest_slots function has not been implemented yet")
+    # Dictionary to track the total amount needed for every requested resource
+    total_demand: Dict[str, Number] = {}
+
+    # 1. Sum up the total demand for each resource
+    for req in requests:
+        for resource_name, amount in req.items():
+            current_total = total_demand.get(resource_name, 0)
+            total_demand[resource_name] = current_total + amount
+
+    # 2. Check if the total demand exceeds the available capacity
+    for resource_name, amount_needed in total_demand.items():
+        # Get the available capacity; if the resource isn't listed, capacity is 0
+        available_capacity = resources.get(resource_name, 0)
+        
+        if amount_needed > available_capacity:
+            return False
+
+    return True
