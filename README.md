@@ -1,6 +1,5 @@
-## TODO:
-## Student Name:
-## Student ID: 
+## Student Name: Vikram Singh Chauhan
+## Student ID: 220914867
 
 # Is Resource Allocation Feasible Lab Repository
 
