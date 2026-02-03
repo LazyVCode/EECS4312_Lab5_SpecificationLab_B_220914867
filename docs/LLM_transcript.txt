@@ -1,10 +1,40 @@
-## Student Name:
-## Student ID: 
+## Student Name: Vikram Singh Chauhan	
+## Student ID: 220914867
 
 Prompt 1: "Copy paste your question"
-LLM Response 1: "Copy paste LLMs response"
+You are asked to implement a Python function that determines whether a set of resource requests can be satisfied given limited capacity. The function takes as input a list of requests and available resources and returns whether a valid allocation exists. The goal is to determine feasibility of allocation based on the provided information. You may assume inputs are provided in a reasonable and consistent format. src/solution.py – starter file where you implement is_allocation_feasible. Do not rename this file
 
---------------------------------------------------
-Prompt 2: "Copy paste your question"
-LLM Response 2: "Copy paste LLMs response"
---------------------------------------------------
+LLM Response 1: "Copy paste LLMs response"
+from typing import List, Dict
+
+def is_allocation_feasible(requests: List[Dict[str, int]], resources: Dict[str, int]) -> bool:
+    """
+    Determines whether a set of resource requests can be satisfied given limited capacity.
+
+    Args:
+        requests: A list of dictionaries, where each dictionary represents a request
+                  (e.g., {"cpu": 2, "memory": 4}).
+        resources: A dictionary representing available resources
+                   (e.g., {"cpu": 10, "memory": 32}).
+
+    Returns:
+        True if all requests can be satisfied within the available resources, False otherwise.
+    """
+    # Create a dictionary to track total usage for each resource type
+    total_usage = {key: 0 for key in resources}
+
+    for req in requests:
+        for resource_type, amount in req.items():
+            # If a request asks for a resource that doesn't exist, it's infeasible
+            # (Alternatively, you could treat unknown resources as a separate failure condition)
+            if resource_type not in resources:
+                return False
+            
+            total_usage[resource_type] += amount
+
+    # Check if total usage exceeds available capacity for any resource
+    for resource_type, limit in resources.items():
+        if total_usage[resource_type] > limit:
+            return False
+
+    return True
