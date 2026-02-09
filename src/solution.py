@@ -1,13 +1,5 @@
 ## Student Name: Vikram Singh Chauhan
 ## Student ID: 220914867
-
-"""
-Stub file for the is allocation feasible exercise.
-
-Implement the function `is_allocation_feasible` to Determine whether a set of resource requests can be satisfied 
-given limited capacities. Take into account any possible constraints. See the lab handout
-for full requirements.
-"""
     
 from typing import Dict, List, Union
 
