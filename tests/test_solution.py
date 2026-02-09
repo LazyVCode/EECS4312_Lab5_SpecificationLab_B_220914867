@@ -1,17 +1,7 @@
 ## Student Name: Vikram Singh Chauhan
 ## Student ID: 220914867
-
-"""
-Public test suite for the meeting slot suggestion exercise.
-
-Students can run these tests locally to check basic correctness of their implementation.
-The hidden test suite used for grading contains additional edge cases and will not be
-available to students.
-"""
 import pytest
 from src.solution import is_allocation_feasible
-
-# Original Basic Tests
 
 def test_basic_feasible_single_resource():
     # Basic Feasible Single-Resource
